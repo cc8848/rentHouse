@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一定要指定，？？ -->
+<mapper namespace="com.jky.house.dao.HouseMapper">
+    <!-- 查询所有房屋简单信息 -->
+    <select id="simpleQueryHouse" resultMap="simpleHouseResult"> select fwid,zj,title,DATETIME from tbl_fwxx
+    </select>
+    <resultMap type="com.jky.house.entity.House" id="simpleHouseResult">
+        <id column="fwid" property="hid" javaType="int" />
+        <result column="zj" property="rent" />
+        <result column="title" property="title" />
+        <result column="datetime" property="datetime" />
+    </resultMap>
+</mapper>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <include file="com/jky/user/action/user.xml"></include>
+    <include file="com/jky/house/action/house.xml"></include>
+</struts>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="user" abstract="false" namespace="/" extends="struts-default">
+        <!-- 重定向到首页 ,只是为了让下面跳转到首页的result集中跳转到该action，以后方便信息会修改 -->
+        <action name="index" class="userAction" method="index">
+            <result name="success" type="redirect">/index.jsp</result>
+        </action>
+        <!-- 重定向到用户登录过的首页 ,只是为了让用户登录后都跳转到该action，以后方便信息会修改 -->
+        <action name="has_login" class="userAction" method="hasLogin">
+            <result name="success" type="redirect">/login.jsp</result>
+        </action>
+        <!-- 用户登录 -->
+        <action name="login" class="userAction" method="login">
+            <result name="success" type="redirectAction">has_login</result>
+            <result name="login" type="redirectAction">index</result>
+        </action>
+        <!-- 用户注册 -->
+        <action name="register" class="userAction" method="register">
+            <result name="success" type="redirectAction">index</result>
+            <result name="input" type="redirect">/reg.jsp</result>
+        </action>
+        <!-- 用户注销 -->
+        <action name="cancel" class="userAction" method="cancel">
+            <result name="success" type="redirectAction">index</result>
+        </action>
+    </package>
+</struts>

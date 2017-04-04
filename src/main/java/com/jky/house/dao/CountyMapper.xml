@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一定要指定，？？ -->
+<mapper namespace="com.jky.house.dao.CountyMapper">
+    <select id="quertyById" parameterType="int" resultMap="countyResultMapper"> 
+        select TBL_JD.*,TBL_QX.QX
+            from tbl_qx join TBL_JD on TBL_QX.QXID=TBL_JD.QXID
+        where TBL_QX.QXID=#{cid}
+    </select>
+    
+    <!--  -->
+    <resultMap type="com.jky.house.entity.County" id="countyResultMapper">
+        <id column="qxid" property="cid" />
+        <result column="qx" property="cname" />
+        <collection property="streets" ofType="com.jky.house.entity.Street">
+            <id column="jdid" property="sid" />
+            <result column="jd" property="sname" />
+        </collection>
+    </resultMap>
+</mapper>
